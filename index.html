@@ -1,18 +1,247 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Grindly</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Grindly — Habit Tracker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+      color: #eef2ff;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      flex: 1;
+    }
+
+    /* Hero section */
+    .hero {
+      text-align: center;
+      padding: 3rem 0 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.2);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #93c5fd;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: #9ca3af;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 60px;
+      padding: 0.9rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .cta-button:hover {
+      background: #1d4ed8;
+      transform: scale(1.02);
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Features grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin: 4rem 0;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 32px;
+      padding: 1.8rem;
+      backdrop-filter: blur(2px);
+      transition: all 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    /* Legal links section */
+    .legal-links {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 28px;
+      padding: 2rem;
+      margin: 2rem 0 3rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .legal-links h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .link-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .legal-link {
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted rgba(147, 197, 253, 0.4);
+      transition: all 0.2s;
+    }
+
+    .legal-link:hover {
+      color: white;
+      border-bottom-color: white;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+      .hero {
+        padding: 1.5rem 0;
+      }
+      .legal-links {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: Arial; text-align: center; padding: 40px;">
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="badge">⚡ no login · no tracking · private by default</div>
+      <h1>grindly</h1>
+      <div class="tagline">Minimal habit tracking that stays on your device.<br>iCloud sync · No accounts · No analytics</div>
+      <!-- Replace # with your actual App Store link when ready -->
+      <a href="#" class="cta-button" id="appStoreLink">
+        <span>📱</span> Coming soon on App Store
+      </a>
+    </div>
 
-  <h1>Grindly</h1>
-  <p>Build better habits. Stay consistent.</p>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Zero data collection</h3>
+        <p>No emails, no profiles, no tracking. Your habits stay yours alone.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3>iCloud sync</h3>
+        <p>Optional sync across your iPhone, iPad, and Mac using your personal iCloud.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💎</div>
+        <h3>Simple pricing</h3>
+        <p>Monthly, yearly, or lifetime — no hidden fees, no data mining.</p>
+      </div>
+    </div>
 
-  <br>
+    <div class="legal-links">
+      <h2>📄 Legal</h2>
+      <p style="color: #9ca3af; margin-bottom: 1rem;">Your privacy matters. Read how we keep it that way.</p>
+      <div class="link-group">
+        <a href="privacy-policy.html" class="legal-link">Privacy Policy</a>
+        <a href="terms.html" class="legal-link">Terms & Conditions</a>
+      </div>
+      <p style="font-size: 0.75rem; margin-top: 1.5rem; color: #4b5563;">
+        No third-party services · No analytics SDKs · No data sharing
+      </p>
+    </div>
+  </div>
 
-  <a href="privacy-policy.html">Privacy Policy</a><br><br>
-  <a href="terms.html">Terms & Conditions</a>
+  <footer>
+    <p>© 2025 Grindly — habit tracker for iOS. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">Made with 🧠 for focus, not for surveillance</p>
+  </footer>
 
+  <script>
+    // Optional: later replace with your actual App Store link
+    const appStoreBtn = document.getElementById('appStoreLink');
+    if (appStoreBtn) {
+      appStoreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('App Store link will be added once Grindly is published. Stay tuned!');
+      });
+    }
+  </script>
 </body>
 </html>
